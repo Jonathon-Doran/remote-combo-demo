@@ -2,7 +2,7 @@
 
 A minimal test suite demonstrating how remote `COMBO` inputs behave in ComfyUI, both **with** and **without** `force_input`.
 
-This repo is intended for developers and node authors exploring dynamic UI behavior in ComfyUI — specifically the differences in how `COMBO` widgets can be updated at runtime via JavaScript and server endpoints.
+This repo is intended to demonstrate dynamic UI behavior in ComfyUI — specifically the differences in how `COMBO` widgets can be updated at runtime via JavaScript and server endpoints.
 
 ## Overview
 
@@ -24,14 +24,14 @@ Demonstrates a `COMBO` input populated remotely **without** `force_input`.
 - Useful for controlled, fixed-option environments
 - Purpose: show how the lack of `force_input` affects flexibility
 
-### MinimalFolderPicker
+### NewCombo
 
 Demonstrates the same dynamic folder loading, but **with** `force_input: true`.
 
 - Users can select from the list or type a custom folder path
 - Purpose: showcase how dynamic `COMBO` inputs can support custom values with remote population
 
-**Inputs (MinimalFolderPicker):**
+**Inputs (NewCombo):**
 
 - `base_dir` — root folder to scan for subfolders
 - `folder` — a combo box that populates with subdirectories of `base_dir`
@@ -42,7 +42,7 @@ Demonstrates the same dynamic folder loading, but **with** `force_input: true`.
 
 ## How It Works
 
-1. JavaScript extension watches for nodes of type `MinimalFolderPicker` or `RemoteComboNative`
+1. JavaScript extension watches for nodes of type `NewCombo` or `RemoteComboNative`
 2. When `base_dir` changes, it sends a request to:    
    ```
    GET /remote-combo-demo/list_folders?folder=<base_dir>
